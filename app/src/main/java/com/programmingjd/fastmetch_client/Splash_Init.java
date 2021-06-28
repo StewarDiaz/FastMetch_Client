@@ -10,7 +10,7 @@ import android.view.WindowManager;
 
 public class Splash_Init extends AppCompatActivity {
 
-    private final int TD_Splash = 3000;
+    private final int TD_Splash = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

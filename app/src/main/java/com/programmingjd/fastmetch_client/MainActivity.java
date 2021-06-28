@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                    startActivity(iLocat);
                    return true;
                case R.id.profile:
-                   Intent iProf = new Intent(getApplicationContext(), MainActivity.class);
+                   Intent iProf = new Intent(getApplicationContext(), MercadoPagoInteger.class);
                    startActivity(iProf);
                    return true;
 
