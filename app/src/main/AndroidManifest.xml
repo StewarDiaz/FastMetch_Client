@@ -19,6 +19,7 @@
         android:roundIcon="@mipmap/ic_icono"
         android:supportsRtl="true"
         android:theme="@style/Theme.FastMetch_Client">
+        <activity android:name=".DepartamentClient"></activity>
         <activity android:name=".MercadoPagoInteger" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

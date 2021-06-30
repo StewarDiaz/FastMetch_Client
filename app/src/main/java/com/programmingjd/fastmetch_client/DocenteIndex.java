@@ -27,27 +27,27 @@ public class DocenteIndex extends AppCompatActivity {
         setContentView(R.layout.activity_docente_index);
 
         listDocente = findViewById(R.id.lvDocentesLV);
-        getFromDocentes();
+//        getFromDocentes();
     }
 
-    private void getFromDocentes(){
-        Call<List<Docentes_info>> callingDocent = RetrofitClient.getInstance().getMyApy().getDocentes_info_list();
-        callingDocent.enqueue(new Callback<List<Docentes_info>>() {
-            @Override
-            public void onResponse(Call<List<Docentes_info>> call, Response<List<Docentes_info>> response) {
-                if(response.isSuccessful()){
-                    DocList = response.body();
-                    DocenteAdapter adapter = new DocenteAdapter(DocenteIndex.this, DocList);
-                    listDocente.setAdapter(adapter);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<List<Docentes_info>> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error con la conexion", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-    }
+//    private void getFromDocentes(){
+//        Call<List<Docentes_info>> callingDocent = RetrofitClient.getInstance().getMyApy().getDocentes_info_list();
+//        callingDocent.enqueue(new Callback<List<Docentes_info>>() {
+//            @Override
+//            public void onResponse(Call<List<Docentes_info>> call, Response<List<Docentes_info>> response) {
+//                if(response.isSuccessful()){
+//                    DocList = response.body();
+//                    DocenteAdapter adapter = new DocenteAdapter(DocenteIndex.this, DocList);
+//                    listDocente.setAdapter(adapter);
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<List<Docentes_info>> call, Throwable t) {
+//                Toast.makeText(getApplicationContext(), "Error con la conexion", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//    }
 
 }

@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.programmingjd.fastmetch_client.models.Departament;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
            switch (item.getItemId()){
                case R.id.task:
-                   Intent iTask = new Intent(getApplicationContext(), DocenteIndex.class);
+                   Intent iTask = new Intent(getApplicationContext(), DepartamentClient.class);
                    startActivity(iTask);
                    break;
                case R.id.location:
