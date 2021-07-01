@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FormRegisterClient"
-    android:background="@drawable/fondo_basico_ajuste">
+    android:background="@drawable/fondo_basico_ajuste"
+    tools:context=".FormRegisterClient">
 
     <TextView
         android:id="@+id/textView7"
@@ -25,7 +25,7 @@
         android:id="@+id/etNewNameClient"
         android:layout_width="330dp"
         android:layout_height="45dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:fontFamily="@font/unlock"
         android:hint="Nombre"
@@ -74,37 +74,35 @@
 
     <EditText
         android:id="@+id/etNewGenderClient"
-        android:layout_width="330dp"
+        android:layout_width="90dp"
         android:layout_height="45dp"
+        android:layout_marginStart="41dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Genero"
         android:fontFamily="@font/unlock"
+        android:hint="Genero"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#E5E7ED"
         android:textColorHint="#E5E7ED"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNewIdentificationClient" />
 
     <EditText
         android:id="@+id/etNewPhoneClient"
-        android:layout_width="330dp"
+        android:layout_width="226dp"
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
         android:ems="10"
-        android:hint="Telefono"
         android:fontFamily="@font/unlock"
+        android:hint="Telefono"
         android:inputType="number"
         android:textAlignment="center"
         android:textColor="#E5E7ED"
         android:textColorHint="#E5E7ED"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNewGenderClient" />
+        app:layout_constraintTop_toBottomOf="@+id/etNewIdentificationClient" />
 
     <EditText
         android:id="@+id/edtNewVehiculeClient"
@@ -112,72 +110,92 @@
         android:layout_height="45dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:hint="Vehiculo"
         android:fontFamily="@font/unlock"
+        android:hint="Vehiculo"
         android:inputType="textPersonName"
         android:textAlignment="center"
         android:textColor="#E5E7ED"
         android:textColorHint="#E5E7ED"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etNewPhoneClient" />
-
-    <Spinner
-        android:id="@+id/spNewIDCityClient"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:textAlignment="center"
-        android:fontFamily="@font/unlock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNewVehiculeClient" />
-
-    <Spinner
-        android:id="@+id/spNewTypeDocumentClient"
-        android:layout_width="330dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:textAlignment="center"
-        android:fontFamily="@font/unlock"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spNewIDCityClient" />
+        app:layout_constraintTop_toBottomOf="@+id/etNewClientEmail" />
 
     <Button
         android:id="@+id/btnSaveNewClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="60dp"
         android:layout_marginBottom="87dp"
         android:background="@drawable/redondeo"
-        android:text="Guardar"
         android:fontFamily="@font/unlock"
+        android:onClick="startNewClient"
+        android:text="Guardar"
         android:textColor="#E5E7ED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
         app:layout_constraintStart_toEndOf="@+id/btnCancelNewClient"
-        app:layout_constraintTop_toBottomOf="@+id/spNewTypeDocumentClient" />
+        app:layout_constraintTop_toBottomOf="@+id/spNewTypeDocumentClient"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spNewTypeDocumentClient"
+        android:layout_width="330dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/unlock"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spNewIDCityClient" />
 
     <Button
         android:id="@+id/btnCancelNewClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="24dp"
         android:layout_marginBottom="87dp"
         android:background="@drawable/redondeo"
-        android:text="Cancelar"
         android:fontFamily="@font/unlock"
         android:onClick="startLoginClient"
+        android:text="Cancelar"
         android:textColor="#E5E7ED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spNewTypeDocumentClient" />
+        app:layout_constraintTop_toBottomOf="@+id/spNewTypeDocumentClient"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spNewIDCityClient"
+        android:layout_width="330dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/unlock"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtNewVehiculeClient" />
+
+    <EditText
+        android:id="@+id/etNewClientEmail"
+        android:layout_width="330dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:fontFamily="@font/unlock"
+        android:hint="Correo Electronico"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        android:textColorHint="#E5E7ED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNewPhoneClient" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

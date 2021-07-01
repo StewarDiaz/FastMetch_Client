@@ -25,8 +25,8 @@ public class DepartamentClient extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_departament);
-        listDepartament = findViewById(R.id.lvDepartamen);
 
+        listDepartament = findViewById(R.id.lvDepartamen);
         getFromDepartament();
     }
 

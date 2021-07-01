@@ -2,21 +2,24 @@ package com.programmingjd.fastmetch_client;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
-import android.location.LocationManager;
+
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
+
 import android.view.WindowManager;
-import android.widget.FrameLayout;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.programmingjd.fastmetch_client.models.Departament;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    FragmentTransaction transaction;
+    Fragment fragmentService, fragmentMap, fragmentprofile;
 
     private BottomNavigationView bottomNav;
 
@@ -25,9 +28,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        fragmentService = new ServiceClientFragment();
+        fragmentMap = new MapsFragmentClient();
+        fragmentprofile = new MercadoPagoIntegerFragment();
+
+        getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMap).commit();
+
         bottomNav = findViewById(R.id.btnNavView);
-
-
         bottomNav.setOnNavigationItemSelectedListener(mOnNav);
     }
 
@@ -35,19 +43,19 @@ public class MainActivity extends AppCompatActivity {
        @Override
        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+           transaction = getSupportFragmentManager().beginTransaction();
+
            switch (item.getItemId()){
                case R.id.task:
-                   Intent iTask = new Intent(getApplicationContext(), DepartamentClient.class);
+                   Intent iTask = new Intent(getApplicationContext(), ClientIndex.class);
                    startActivity(iTask);
                    break;
                case R.id.location:
-                   Intent iLocat = new Intent(getApplicationContext(), LocationMapClient.class);
-                   startActivity(iLocat);
-                   return true;
+                   transaction.replace(R.id.containerFragments, fragmentMap).commit();
+                   break;
                case R.id.profile:
-                   Intent iProf = new Intent(getApplicationContext(), MercadoPagoInteger.class);
-                   startActivity(iProf);
-                   return true;
+                   transaction.replace(R.id.containerFragments, fragmentprofile).commit();
+                   break;
 
            }
            return false;

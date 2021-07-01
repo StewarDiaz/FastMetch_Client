@@ -1,12 +1,15 @@
 package com.programmingjd.fastmetch_client.ApiManager;
 
+import com.programmingjd.fastmetch_client.models.Client;
 import com.programmingjd.fastmetch_client.models.Departament;
-import com.programmingjd.fastmetch_client.models.Docentes_info;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 
 public interface Api {
 
@@ -15,5 +18,19 @@ public interface Api {
     @GET("api/DepartamentsApi")
     Call<List<Departament>> getDepartamentList();
 
+    @GET("api/ClientsApi")
+    Call<List<Client>> getClientList();
+
+    @POST("api/ClientsApi")
+    @FormUrlEncoded
+    Call<Client> postClientData(@Field("NameClient") String NameClient,
+                                @Field("SurnameClient") String SurnameClient,
+                                @Field("IdentificationNumberClient") String IdentificationNumberClient,
+                                @Field("GenderClient") String GenderClient,
+                                @Field("PhoneClient") String PhoneClient,
+                                @Field("emailAddressClient") String emailClient,
+                                @Field("VehicleClient") String VehicleClient,
+                                @Field("IdCity") int IdCity,
+                                @Field("IdTypeDocument") int IdTypeDocument);
 
 }
