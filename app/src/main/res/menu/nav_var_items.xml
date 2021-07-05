@@ -5,16 +5,16 @@
     <item
         android:id="@+id/task"
         android:title="Servicios"
-        android:icon="@drawable/ic_shop_icon"/>
+        android:icon="@drawable/ic_profile_icon"/>
 
     <item
         android:id="@+id/location"
         android:title="Localizacion"
-        android:icon="@drawable/ic_location_icon"/>
+        android:icon="@drawable/ic_shop_icon"/>
 
     <item
         android:id="@+id/profile"
         android:title="Perfil"
-        android:icon="@drawable/ic_profile_icon"/>
+        android:icon="@drawable/ic_location_icon"/>
 
 </menu>

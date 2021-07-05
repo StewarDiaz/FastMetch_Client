@@ -44,6 +44,11 @@ import com.karumi.dexter.listener.PermissionDeniedResponse;
 import com.karumi.dexter.listener.PermissionGrantedResponse;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
+import com.programmingjd.fastmetch_client.ApiManager.RetrofitClient;
+import com.programmingjd.fastmetch_client.models.Client;
+import com.programmingjd.fastmetch_client.models.Mechanic;
+
+import java.util.List;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -59,7 +64,11 @@ public class MapsClientFragment extends Fragment implements View.OnClickListener
     Button btnUpdate;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
+
     LatLng latLng;
+    LatLng latLngMech;
+
+    List<Mechanic> MechList;
 
 
     @Override
@@ -126,7 +135,7 @@ public class MapsClientFragment extends Fragment implements View.OnClickListener
 
                     mapFragment.getMapAsync(callback);
                 }else {
-                    Log.d("status", "Location is : "+null);
+                    Log.d("status", "Location is : "+ null);
                     Toast.makeText(getActivity(), "Disabled", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -155,13 +164,34 @@ public class MapsClientFragment extends Fragment implements View.OnClickListener
     };
 
     private void addMarker(GoogleMap googleMap){
-        CameraPosition positionCameraPosition = new CameraPosition.Builder().target(latLng).zoom(15).bearing(0).tilt(0).build();
+        CameraPosition positionCameraPosition = new CameraPosition.Builder().target(latLng).zoom(12).bearing(0).tilt(0).build();
         CameraUpdate cam3 = CameraUpdateFactory.newCameraPosition(positionCameraPosition);
         googleMap.animateCamera(cam3);
 
         googleMap.addMarker(new MarkerOptions().position(latLng).title("ubicacion actual"));
 
-        // Foreach */
+        // Foreach */ para el retrofit de cargar los mecanicos en el mapa
+        Call<List<Mechanic>> callingMech = RetrofitClient.getInstance().getMyApy().getMechanicList();
+        callingMech.enqueue(new Callback<List<Mechanic>>() {
+            @Override
+            public void onResponse(Call<List<Mechanic>> call, Response<List<Mechanic>> response) {
+                MechList = response.body();
+                if(response.isSuccessful()){
+                    for (Mechanic obMech: MechList) {
+                        latLngMech = new LatLng(Double.parseDouble(obMech.getLatitudeMechanic().toString()),
+                                                Double.parseDouble(obMech.getLongitudeMechanic().toString()));
+                        googleMap.addMarker(new MarkerOptions().position(latLngMech).title(obMech.getNameMechanic())
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                        //icono home repair
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Mechanic>> call, Throwable t) {
+                Toast.makeText(getActivity(), "Error de red", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 

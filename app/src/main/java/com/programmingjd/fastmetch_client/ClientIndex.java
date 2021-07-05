@@ -11,6 +11,7 @@ import com.programmingjd.fastmetch_client.adapters.ClientsAdapter;
 import com.programmingjd.fastmetch_client.adapters.DepartamentAdapater;
 import com.programmingjd.fastmetch_client.models.Client;
 import com.programmingjd.fastmetch_client.models.Departament;
+import com.programmingjd.fastmetch_client.models.Mechanic;
 
 
 import java.util.List;
@@ -43,10 +44,14 @@ public class ClientIndex extends AppCompatActivity {
                 CliList = response.body();
 
                 if(response.isSuccessful()){
-                    for (int i = 0; i < CliList.size(); i++){
-                        msj = CliList.get(i).getEmailAddressClient().toString();
+                    for (Client objClient: CliList) {
+                        msj = objClient.getEmailAddressClient().toString();
                         Toast.makeText(getApplicationContext(), msj, Toast.LENGTH_SHORT).show();
                     }
+//                    for (int i = 0; i < CliList.size(); i++){
+//                        msj = CliList.get(i).getEmailAddressClient().toString();
+//                        Toast.makeText(getApplicationContext(), msj, Toast.LENGTH_SHORT).show();
+//                    }
                     ClientsAdapter adapater = new ClientsAdapter(ClientIndex.this, CliList);
                     listClientIndex.setAdapter(adapater);
                 }
@@ -57,6 +62,5 @@ public class ClientIndex extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Error de red", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

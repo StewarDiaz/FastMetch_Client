@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
                    startActivity(iTask);
                    break;
                case R.id.location:
-                   transaction.replace(R.id.containerFragments, fragmentMap).commit();
-//                   Intent iMap = new Intent(getApplicationContext(), MapsActivityPrueba.class);
-//                   startActivity(iMap);
+//                   transaction.replace(R.id.containerFragments, fragmentMap).commit();
+                   Intent iMap = new Intent(getApplicationContext(), TheServiceClient.class);
+                   startActivity(iMap);
                    break;
                case R.id.profile:
                    Intent iProfile = new Intent(getApplicationContext(), ProfileClient.class);

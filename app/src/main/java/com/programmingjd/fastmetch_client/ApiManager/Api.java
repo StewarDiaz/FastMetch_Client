@@ -2,6 +2,8 @@ package com.programmingjd.fastmetch_client.ApiManager;
 
 import com.programmingjd.fastmetch_client.models.Client;
 import com.programmingjd.fastmetch_client.models.Departament;
+import com.programmingjd.fastmetch_client.models.Mechanic;
+import com.programmingjd.fastmetch_client.models.ServiceType;
 
 import java.util.List;
 
@@ -18,8 +20,14 @@ public interface Api {
     @GET("api/DepartamentsApi")
     Call<List<Departament>> getDepartamentList();
 
+    @GET("api/MechanicsApi")
+    Call<List<Mechanic>> getMechanicList();
+
     @GET("api/ClientsApi")
     Call<List<Client>> getClientList();
+
+    @GET("api/ServiceTypesApi")
+    Call<List<ServiceType>> getServiceTypeList();
 
     @POST("api/ClientsApi")
     @FormUrlEncoded
