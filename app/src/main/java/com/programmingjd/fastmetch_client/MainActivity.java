@@ -30,10 +30,10 @@ public class MainActivity extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         fragmentService = new ServiceClientFragment();
-        fragmentMap = new MapsFragmentClient();
+        fragmentMap = new MapsClientFragment();
         fragmentprofile = new MercadoPagoIntegerFragment();
 
-        getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMap).commit();
+        //getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMap).commit();
 
         bottomNav = findViewById(R.id.btnNavView);
         bottomNav.setOnNavigationItemSelectedListener(mOnNav);
@@ -52,8 +52,12 @@ public class MainActivity extends AppCompatActivity {
                    break;
                case R.id.location:
                    transaction.replace(R.id.containerFragments, fragmentMap).commit();
+//                   Intent iMap = new Intent(getApplicationContext(), MapsActivityPrueba.class);
+//                   startActivity(iMap);
                    break;
                case R.id.profile:
+                   Intent iProfile = new Intent(getApplicationContext(), ProfileClient.class);
+                   startActivity(iProfile);
                    transaction.replace(R.id.containerFragments, fragmentprofile).commit();
                    break;
 

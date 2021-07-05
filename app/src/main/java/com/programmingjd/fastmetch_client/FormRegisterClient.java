@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -11,8 +12,11 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 import com.programmingjd.fastmetch_client.ApiManager.RetrofitClient;
 import com.programmingjd.fastmetch_client.models.Client;
+
+import java.util.regex.Pattern;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -61,13 +65,13 @@ public class FormRegisterClient extends AppCompatActivity {
             @Override
             public void onResponse(Call<Client> call, Response<Client> response) {
                 if(response.isSuccessful()){
-                    Toast.makeText(getApplicationContext(), "Se registro Correctamente a " + response.body().getNameClient(), Toast.LENGTH_SHORT).show();
+                    DynamicToast.makeSuccess(getApplicationContext(), "Se registro Correctamente a " + response.body().getNameClient(), Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Client> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Error de red", Toast.LENGTH_SHORT).show();
+                DynamicToast.makeError(getApplicationContext(), "Error de red.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -97,13 +101,52 @@ public class FormRegisterClient extends AppCompatActivity {
 
 
     public void ValidarCamposTxt(){
-        newClientName.setError(null);
-        newClientSurname.setError(null);
-        newClientNIdentification.setError(null);
-        newClientGender.setError(null);
-        newClientPhone.setError(null);
-        newClientVehicule.setError(null);
+        String NameC = newClientName.getText().toString();
+        String SurnameC = newClientSurname.getText().toString();
+        String IdentifyC = newClientNIdentification.getText().toString();
+        String GenderC = newClientGender.getText().toString();
+        String PhoneC = newClientPhone.getText().toString();
+        String EmailC = newClientEmail.getText().toString();
+        String VehiculeC = newClientName.getText().toString();
 
+        if(NameC.isEmpty()){
+            DynamicToast.makeWarning(this, "El nombre esta vacio.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(SurnameC.isEmpty()){
+            DynamicToast.makeWarning(this, "El apellid esta vacio.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(IdentifyC.isEmpty()){
+            DynamicToast.makeWarning(this, "El numero de identificacion esta vacio.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(GenderC.isEmpty()){
+            DynamicToast.makeWarning(this, "El genero esta vacio.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(PhoneC.isEmpty()){
+            DynamicToast.makeWarning(this, "El telefono esta vacio.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(EmailC.isEmpty()){
+            DynamicToast.makeWarning(this, "El email esta vacio.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(VehiculeC.isEmpty()){
+            DynamicToast.makeWarning(this, "El vehiculo esta vacio.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!isValidEmail(EmailC)){
+            DynamicToast.makeWarning(this, "Correo incorrecto.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+    }
+
+    private Boolean isValidEmail(String email){
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        return pattern.matcher(email).matches();
     }
 
 

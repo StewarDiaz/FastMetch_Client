@@ -46,7 +46,9 @@ public class Login_Client extends AppCompatActivity {
     }
 
     public void startMain(View v){
-        loginClient();
+        Intent intentOk = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intentOk);
+        //loginClient();
     }
 
     private void loginClient(){
