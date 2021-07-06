@@ -4,7 +4,9 @@ import com.programmingjd.fastmetch_client.models.Client;
 import com.programmingjd.fastmetch_client.models.Departament;
 import com.programmingjd.fastmetch_client.models.Mechanic;
 import com.programmingjd.fastmetch_client.models.ServiceType;
+import com.programmingjd.fastmetch_client.models.TheService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,7 +29,10 @@ public interface Api {
     Call<List<Client>> getClientList();
 
     @GET("api/ServiceTypesApi")
-    Call<List<ServiceType>> getServiceTypeList();
+    Call<ArrayList<ServiceType>> getServiceTypeList();
+
+    @GET("api/TheServicesApi")
+    Call<ArrayList<TheService>> getTheServiceList();
 
     @POST("api/ClientsApi")
     @FormUrlEncoded
@@ -40,5 +45,11 @@ public interface Api {
                                 @Field("VehicleClient") String VehicleClient,
                                 @Field("IdCity") int IdCity,
                                 @Field("IdTypeDocument") int IdTypeDocument);
+
+    @POST("api/TheServicesApi")
+    @FormUrlEncoded
+    Call<TheService> postTheServiceData(@Field("NameTheService") String NameTheService,
+                                        @Field("DescriptionTheService") String DescriptionTheService,
+                                        @Field("IdServiceType") int IdServiceType);
 
 }

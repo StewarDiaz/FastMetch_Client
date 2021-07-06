@@ -37,12 +37,17 @@ public class ServiceType implements Serializable {
         DescriptionServiceType = descriptionServiceType;
     }
 
+    public ServiceType(String idServiceType, String nameServiceType, String descriptionServiceType) {
+        IdServiceType = idServiceType;
+        NameServiceType = nameServiceType;
+        DescriptionServiceType = descriptionServiceType;
+    }
+
+    public ServiceType() {
+    }
+
     @Override
     public String toString() {
-        return "ServiceType{" +
-                "IdServiceType='" + IdServiceType + '\'' +
-                ", NameServiceType='" + NameServiceType + '\'' +
-                ", DescriptionServiceType='" + DescriptionServiceType + '\'' +
-                '}';
+        return  NameServiceType;
     }
 }

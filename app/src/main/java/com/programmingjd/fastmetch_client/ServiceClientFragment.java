@@ -47,6 +47,11 @@ public class ServiceClientFragment extends Fragment {
             public void onResponse(Call<List<Client>> call, Response<List<Client>> response) {
                 if(response.isSuccessful()){
                     CliList = response.body();
+                    String msj = "";
+                    for (Client obClient: CliList) {
+
+
+                    }
                     //aun falta hacerlo y se estalla al intentar mostrar la listView en
                     //este fragmente
                 }
