@@ -47,13 +47,18 @@ public class TheService implements Serializable {
         IdServiceType = idServiceType;
     }
 
+    public TheService(String idTheService, String nameTheService, String descriptionTheService, int idServiceType) {
+        IdTheService = idTheService;
+        NameTheService = nameTheService;
+        DescriptionTheService = descriptionTheService;
+        IdServiceType = idServiceType;
+    }
+
+    public TheService() {
+    }
+
     @Override
     public String toString() {
-        return "TheService{" +
-                "IdTheService='" + IdTheService + '\'' +
-                ", NameTheService='" + NameTheService + '\'' +
-                ", DescriptionTheService='" + DescriptionTheService + '\'' +
-                ", IdServiceType=" + IdServiceType +
-                '}';
+        return  NameTheService;
     }
 }

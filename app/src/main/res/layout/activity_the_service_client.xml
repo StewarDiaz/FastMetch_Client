@@ -12,6 +12,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="48dp"
         android:textAlignment="center"
+        android:entries="@array/SpEmptyTypeService"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,7 +35,7 @@
         android:id="@+id/edDescrpcionTheService"
         android:layout_width="370dp"
         android:layout_height="190dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="78dp"
         android:ems="10"
         android:fontFamily="@font/unlock"
         android:hint="Si eligio otro, describa muy bien lo sucedido."
@@ -42,9 +43,9 @@
         android:textAlignment="center"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spTheServiceArray" />
 
     <Button
         android:id="@+id/btnSaveTheService"
@@ -60,10 +61,12 @@
         app:layout_constraintTop_toBottomOf="@+id/edDescrpcionTheService" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spTheServiceArray"
         android:layout_width="367dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
+        android:entries="@array/SpEmptyTheService"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

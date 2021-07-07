@@ -35,7 +35,6 @@
         <activity android:name=".ProfileClient" />
         <activity android:name=".ClientIndex" />
         <activity android:name=".DepartamentClient" />
-        <activity android:name=".MercadoPagoInteger" />
         <activity android:name=".FormRegisterClient" />
         <activity android:name=".Login_Client" />
         <activity android:name=".Splash_Init">

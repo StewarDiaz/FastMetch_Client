@@ -4,4 +4,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_location_map_client">Map</string>
     <string name="title_activity_maps_prueba">Map</string>
+
+    <string-array name="SpEmptyTheService">
+        <item>Seleccione su necesidad</item>
+    </string-array>
+
+    <string-array name="SpEmptyTypeService">
+        <item>Seleccione el tipo de servicio</item>
+    </string-array>
 </resources>

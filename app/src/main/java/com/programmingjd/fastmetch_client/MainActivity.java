@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         fragmentService = new ServiceClientFragment();
         fragmentMap = new MapsClientFragment();
-        fragmentprofile = new MercadoPagoIntegerFragment();
+        //fragmentprofile = new MercadoPagoIntegerFragment();
 
         //getSupportFragmentManager().beginTransaction().add(R.id.containerFragments, fragmentMap).commit();
 
