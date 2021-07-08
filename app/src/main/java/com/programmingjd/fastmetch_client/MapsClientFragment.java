@@ -162,6 +162,12 @@ public class MapsClientFragment extends Fragment implements View.OnClickListener
         CameraUpdate cam3 = CameraUpdateFactory.newCameraPosition(positionCameraPosition);
         googleMap.animateCamera(cam3);
 
+        LatLng prueba = new LatLng(5.243722, -75.780592);
+        googleMap.addMarker(new MarkerOptions().position(prueba).draggable(true).title("Jose").snippet("Mecanico 1").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
+        LatLng prueba1 = new LatLng(5.232802, -75.783117);
+        googleMap.addMarker(new MarkerOptions().position(prueba1).draggable(true).title("Onorio").snippet("Mecanico de la maria").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+
         googleMap.addMarker(new MarkerOptions().position(latLng).title("ubicacion actual"));
 
         // Foreach */ para el retrofit de cargar los mecanicos en el mapa

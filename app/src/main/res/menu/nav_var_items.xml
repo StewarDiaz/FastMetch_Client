@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/task"
+        android:id="@+id/profile"
         android:title="Perfil"
         android:icon="@drawable/ic_profile_icon"/>
 
     <item
-        android:id="@+id/location"
+        android:id="@+id/Service"
         android:title="Servicio"
         android:icon="@drawable/ic_shop_icon"/>
 
     <item
-        android:id="@+id/profile"
-        android:title="NN"
+        android:id="@+id/Location"
+        android:title="Ubicación"
         android:icon="@drawable/ic_location_icon"/>
 
 </menu>

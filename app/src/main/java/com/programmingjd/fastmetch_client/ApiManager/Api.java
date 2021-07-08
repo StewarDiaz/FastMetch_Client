@@ -14,6 +14,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface Api {
 
@@ -29,10 +30,16 @@ public interface Api {
     Call<List<Client>> getClientList();
 
     @GET("api/ServiceTypesApi")
-    Call<ArrayList<ServiceType>> getServiceTypeList();
+    Call<ArrayList<ServiceType>> getServiceTypeArrayList();
 
     @GET("api/TheServicesApi")
-    Call<ArrayList<TheService>> getTheServiceList();
+    Call<ArrayList<TheService>> getTheServiceArrayList();
+
+    @GET("api/Mechanics")
+    Call<ArrayList<TheService>> getMechanicsArrayList();
+
+    @GET("api/ClientsApi/{id}")
+    Call<Client> getClientById(@Path("id") int id);
 
     @POST("api/ClientsApi")
     @FormUrlEncoded

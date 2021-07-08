@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_icono"
         android:supportsRtl="true"
         android:theme="@style/Theme.FastMetch_Client">
-        <activity android:name=".TheServiceClient"></activity>
+        <activity android:name=".ConfirmationPay"></activity>
+        <activity android:name=".TheServiceClient" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

@@ -28,6 +28,8 @@ public class Login_Client extends AppCompatActivity {
     private EditText User;
     private EditText Pass;
 
+    String idUserLog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +48,9 @@ public class Login_Client extends AppCompatActivity {
     }
 
     public void startMain(View v){
-        Intent intentOk = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(intentOk);
-        //loginClient();
+//        Intent intentOk = new Intent(getApplicationContext(), MainActivity.class);
+//        startActivity(intentOk);
+        loginClient();
     }
 
     private void loginClient(){
@@ -64,10 +66,13 @@ public class Login_Client extends AppCompatActivity {
                     for (int i = 0; i < clieList.size(); i++){
                         if(userL.equalsIgnoreCase(clieList.get(i).getEmailAddressClient()) &&
                                 passL.equalsIgnoreCase(clieList.get(i).getIdentificationNumberClient())){
+                            idUserLog = clieList.get(i).getIdClient().toString();
                             Intent intentOk = new Intent(getApplicationContext(), MainActivity.class);
+                            intentOk.putExtra("IdToUseC", idUserLog);
                             startActivity(intentOk);
                             DynamicToast.makeSuccess(getApplicationContext(), "Estas adentro", Toast.LENGTH_SHORT).show();
                             res = "ok";
+
                         }else{
                             res = "ko";
                         }

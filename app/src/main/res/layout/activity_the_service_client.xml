@@ -11,8 +11,8 @@
         android:layout_width="367dp"
         android:layout_height="50dp"
         android:layout_marginTop="48dp"
-        android:textAlignment="center"
         android:entries="@array/SpEmptyTypeService"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
         android:fontFamily="@font/unlock"
-        android:text="Servicio Solicitado"
+        android:text="Solicitando Servicio"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -35,7 +35,7 @@
         android:id="@+id/edDescrpcionTheService"
         android:layout_width="370dp"
         android:layout_height="190dp"
-        android:layout_marginTop="78dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:fontFamily="@font/unlock"
         android:hint="Si eligio otro, describa muy bien lo sucedido."
@@ -45,18 +45,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spTheServiceArray" />
+        app:layout_constraintTop_toBottomOf="@+id/edtValorServicio" />
 
     <Button
         android:id="@+id/btnSaveTheService"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/unlock"
         android:text="Solicitar"
+        android:onClick="stratPay"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edDescrpcionTheService" />
 
@@ -71,5 +72,32 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spTypeService" />
+
+    <Spinner
+        android:id="@+id/spMechanicArray"
+        android:layout_width="367dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/SpEmptyMechanic"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spTheServiceArray" />
+
+    <EditText
+        android:id="@+id/edtValorServicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:ems="10"
+        android:fontFamily="@font/unlock"
+        android:hint="Precio"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spMechanicArray" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

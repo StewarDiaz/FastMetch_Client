@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -20,12 +21,15 @@ public class MainActivity extends AppCompatActivity {
 
     FragmentTransaction transaction;
     Fragment fragmentService, fragmentMap, fragmentprofile;
+    String UserId;
 
     private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent intent = getIntent();
+        UserId = intent.getStringExtra("IdToUseC");
         setContentView(R.layout.activity_main);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
@@ -46,21 +50,19 @@ public class MainActivity extends AppCompatActivity {
            transaction = getSupportFragmentManager().beginTransaction();
 
            switch (item.getItemId()){
-               case R.id.task:
-                   Intent iTask = new Intent(getApplicationContext(), ClientIndex.class);
-                   startActivity(iTask);
+               case R.id.profile:
+                   Intent iProfile = new Intent(getApplicationContext(), ProfileClient.class);
+                   iProfile.putExtra("IdToUseClient", UserId);
+                   startActivity(iProfile);
                    break;
-               case R.id.location:
+               case R.id.Service:
 //                   transaction.replace(R.id.containerFragments, fragmentMap).commit();
                    Intent iMap = new Intent(getApplicationContext(), TheServiceClient.class);
                    startActivity(iMap);
                    break;
-               case R.id.profile:
-                   Intent iProfile = new Intent(getApplicationContext(), ProfileClient.class);
-                   startActivity(iProfile);
-                   transaction.replace(R.id.containerFragments, fragmentprofile).commit();
+               case R.id.Location:
+                   transaction.replace(R.id.containerFragments, fragmentMap).commit();
                    break;
-
            }
            return false;
        }
